@@ -5,7 +5,7 @@
 
 return {
 
-	LrSdkVersion = 3.0,
+	LrSdkVersion = 5.0,
 	LrSdkMinimumVersion = 3.0,
 	LrToolkitIdentifier = 'com.adobe.lightroom.export.wordpress',
 	LrPluginName = LOC "$$$/Wordpress/PluginName=Wordpress",

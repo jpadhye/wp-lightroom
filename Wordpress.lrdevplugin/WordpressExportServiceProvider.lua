@@ -127,8 +127,13 @@ function exportServiceProvider.processRenderedPhotos( functionContext, exportCon
 			
 			if success then
 				local title = photo:getFormattedMetadata( 'title' )
-				local description = photo:getFormattedMetadata( 'caption' )
 				local keywordTags = photo:getFormattedMetadata( 'keywordTagsForExport' )
+				local info_array = {"aperture", "shutterSpeed", "isoSpeedRating", "focalLength", "lens", "cameraModel"}
+				local info = { }
+    			for key, value in ipairs(info_array) do
+        			info[#info+1] = photo:getFormattedMetadata(value)
+    			end
+				local description = photo:getFormattedMetadata( 'caption' ).."\nEXIF: "..table.concat(info," ")
 				
                 if #title == 0 then
                     LrErrors.throwUserError( 'You need to enter a title for this image before it can be uploaded' )
